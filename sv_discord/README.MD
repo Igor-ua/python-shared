@@ -44,7 +44,7 @@ Working example of the usage of the "discord.py" library (game server c/python)
 # -------------------------------------------------------------------------------------------------------
 ```
 
-Embed examples:  
+Discord chat and embed examples:  
 
 ![Screenshot_1](./embed/Screenshot_1.png?raw=true)  
 
