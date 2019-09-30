@@ -43,3 +43,11 @@ Working example of the usage of the "discord.py" library (game server c/python)
 #                         Block Quotes is > or >>> followed by a space
 # -------------------------------------------------------------------------------------------------------
 ```
+
+Embed examples:  
+
+![Screenshot_1](./embed/Screenshot_1.png?raw=true)  
+
+![Screenshot_4](./embed/Screenshot_4.png?raw=true)  
+
+![Screenshot_2](./embed/Screenshot_2.png?raw=true)  
