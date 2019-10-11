@@ -6,3 +6,5 @@
   - *universally unique identifier service*
 - sv_discord
   - *example of the production-ready usage of the "discord.py" library (game server)*
+- sv_exceptions
+  - *Utility for catching and formatting exception messages*
