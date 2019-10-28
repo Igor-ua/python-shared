@@ -51,7 +51,7 @@ class ExceptionData:
             #   'a = 1 / 0'
             # ]
             for index in range(0, 4):
-                if len(root_info) < index:
+                if len(root_info) <= index:
                     root_info.append("<empty>")
                 else:
                     root_info[index] = root_info[index].strip()
