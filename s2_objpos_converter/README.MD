@@ -13,6 +13,21 @@ Converter of the S2's `*.objpos` files into a CSV format for exporting into UE4
 class,object,posX,posY,posZ,rotX,rotY,rotZ,scale
 ```
 
+**Examples (Windows 10 x64):**
+Running from a command-line (don't forget to install the latest python and add it into the path during the installation)
+```
+X:\Code\s2_objpos_converter>python s2_objpos_converter.py -f ./world
+
+Input location: ./world/, output location: ./ut4/
+Found plain text: {'./world/choke_fixed.objpos'}
+Found archives: {'./world/eden2.s2z', './world/haven.s2z', './world/bunker.s2z'}
+choke_fixed  --->  ./ut4/choke_fixed.csv
+eden2  --->  ./ut4/eden2.csv
+haven  --->  ./ut4/haven.csv
+bunker  --->  ./ut4/bunker.csv
+```
+
+
 **Examples (Ubuntu x64):**
 
 Listing --help information:
