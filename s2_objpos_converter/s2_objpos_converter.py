@@ -34,9 +34,9 @@ def resolve_args():
         os.makedirs(args.output)
 
     if args.single:
-        print("Input location: %s, output location: %s" % (args.single, args.output))
+        print(f'Input location: {args.single}, output location: {args.output}')
     else:
-        print("Input location: %s, output location: %s" % (args.folder, args.output))
+        print(f'Input location: {args.folder}, output location: {args.output}')
 
 
 def init_files_list(path_single, path_folder):
@@ -84,17 +84,17 @@ class Target:
             self.s2_maps[Path(f.name).stem] = s2_obj_pos
 
     def print(self):
-        print("Found plain text: %s" % self.plain_text_file_paths)
-        print("Found archives: %s" % self.archives_file_paths)
+        print(f'Found plain text: {self.plain_text_file_paths}')
+        print(f'Found archives: {self.plain_text_file_paths}')
 
     @staticmethod
     def _get_s2z_inner_obj_pos_path(path):
         head, tail = ntpath.split(path)
         file_name = os.path.splitext(tail or ntpath.basename(head))[0]
-        return 'world/{}/{}.objpos'.format(file_name, file_name)
+        return f'world/{file_name}/{file_name}.objpos'
 
     def __str__(self):
-        return 'plain text: {}, archives: {}'.format(self.plain_text_file_paths, self.archives_file_paths)
+        return f'plain text: {self.plain_text_file_paths}, archives: {self.archives_file_paths}'
 
 
 def create_object(s: str):
@@ -108,10 +108,12 @@ def create_object(s: str):
 
 def write_csv(target: Target):
     for k, v in target.s2_maps.items():
-        print("{}  --->  {}{}.csv".format(k, args.output, k))
+        print(f'{k}  --->  {args.output}{k}.csv')
 
-        with open('{}{}.csv'.format(args.output, k), mode='w') as csv_file:
+        rows_counter = 0
+        with open(f'{args.output}{k}.csv', mode='w', newline='', encoding='utf-8') as csv_file:
             fieldnames = [
+                '',
                 'class',
                 'object',
                 'posX',
@@ -129,6 +131,7 @@ def write_csv(target: Target):
             for obj in v.s2_object_positions:
                 writer.writerow(
                     {
+                        '': rows_counter,
                         'class': obj.prefix,
                         'object': obj.name,
                         'posX': obj.x * UE4_MULTIPLIER,
@@ -139,6 +142,7 @@ def write_csv(target: Target):
                         'rotZ': obj.c,
                         'scale': obj.d,
                     })
+                rows_counter = rows_counter + 1
 
 
 class S2ObjPos:
